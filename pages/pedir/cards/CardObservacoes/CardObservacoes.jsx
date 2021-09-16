@@ -21,3 +21,5 @@ export const CardObservacoes = () => {
 }
 
 CardObservacoes.propTypes = {}
+
+export default CardObservacoes

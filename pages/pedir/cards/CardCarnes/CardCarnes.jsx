@@ -35,3 +35,5 @@ export const CardCarnes = () => {
     </Card>
   )
 }
+
+export default CardCarnes

@@ -35,3 +35,5 @@ export const CardGuarnicoes = () => {
     </Card>
   )
 }
+
+export default CardGuarnicoes

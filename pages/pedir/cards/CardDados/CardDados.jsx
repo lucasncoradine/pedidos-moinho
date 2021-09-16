@@ -87,3 +87,5 @@ export const CardDados = ({ onDataValid }) => {
 CardDados.propTypes = {
   onDataValid: PropTypes.func,
 }
+
+export default CardDados

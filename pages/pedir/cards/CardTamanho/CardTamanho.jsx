@@ -38,3 +38,5 @@ export const CardTamanho = ({ onDataValid }) => {
 CardTamanho.propTypes = {
   onDataValid: PropTypes.func,
 }
+
+export default CardTamanho
