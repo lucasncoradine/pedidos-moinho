@@ -1,0 +1,16 @@
+[
+  {
+    "tipo": "pequena",
+    "descricao": "Pequena",
+    "quantidadeCarnes": 1,
+    "quantidadeGuarnicoes": 5,
+    "valor": 13
+  },
+  {
+    "tipo": "grande",
+    "descricao": "Grande",
+    "quantidadeCarnes": 2,
+    "quantidadeGuarnicoes": 7,
+    "valor": 15.0
+  }
+]

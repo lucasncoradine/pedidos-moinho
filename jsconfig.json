@@ -1,11 +1,24 @@
 {
   "compilerOptions": {
-    "module": "es6",
-    "target": "es6",
+    "module": "esnext",
+    "target": "es5",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "noImplicitAny": false,
     "paths": {
-      "@components": ["/components"],
-      "@styles": ["/styles"]
+      "@components": ["components/index.js"],
+      "@styles": ["styles/index.js"],
+      "@utils": ["utils/index.js"],
+      "@contexts": ["contexts/index.js"],
+      "@static": ["static/index.js"],
+      "@models": ["models/index.js"],
+      "@telegram-bot": ["telegram-api/telegram-api.js"]
     }
   },
-  "include": ["*/**"]
+  "include": ["**/*.js", "**/*.jsx"],
+  "exclude": ["node_modules"]
 }

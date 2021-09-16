@@ -1,0 +1,33 @@
+{
+  "guarnicoes": [
+    "Arroz Branco",
+    "Arroz Integral",
+    "Arroz Piamontese",
+    "Feijão em caldo",
+    "Batata gratinada com bacon",
+    "Refogado de abóbrinha com ovos",
+    "Purê de batata",
+    "Panqueca de carne",
+    "Couve flor gratinado",
+    "Empadão de frango com catupiry",
+    "Espaguete",
+    "Farofa",
+    "Banana Frita"
+  ],
+  "carnes": [
+    "Isca de carne acebolada",
+    "Isca de frango empanado",
+    "Filé de frango grelhado",
+    "Carne assada de panela",
+    "Peixe frito (peroá)",
+    "Ovo frito"
+  ],
+  "saladas": [
+    "Mix de repolho",
+    "Salada de alface e tomate",
+    "Mix de legumes",
+    "Picadinho de cenoura e beterraba",
+    "Maionese",
+    "Salpicão"
+  ]
+}
