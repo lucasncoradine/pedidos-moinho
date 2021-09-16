@@ -1,4 +1,4 @@
-import { Color } from '@styles'
+import { Color, mobile } from '@styles'
 import { darken, lighten } from 'polished'
 import styled from 'styled-components'
 
@@ -61,6 +61,11 @@ export const StyledButton = styled.a`
     transform: scale(1);
     background-color: ${(props) =>
       lighten(0.05, variants[props.variant].backgroundColor)};
+  }
+
+  ${mobile} {
+    width: 100%;
+    justify-content: center;
   }
 `
 

@@ -9,4 +9,5 @@ export const CardContainer = styled.div`
   border-radius: 16px;
   padding: 20px;
   margin-bottom: 20px;
+  width: 100%;
 `

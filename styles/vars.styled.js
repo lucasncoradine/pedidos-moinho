@@ -15,6 +15,8 @@ export const Color = {
   Gray: '#bababa',
   GrayLight: '#ededed',
   Error: '#C91818',
+  Success: '#15ab56',
+  Info: '#1a8db0',
 }
 
 export const BoxShadow = '0px 3px 2px rgba(178, 186, 188, 0.3)'

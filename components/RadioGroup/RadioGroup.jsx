@@ -1,6 +1,4 @@
-import { RadioButton } from '@components'
-import { Grid } from 'components/Grid/Grid'
-import { GridItem } from 'components/Grid/GridItem'
+import { Grid, GridItem, RadioButton } from '@components'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 

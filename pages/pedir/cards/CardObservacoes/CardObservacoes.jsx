@@ -10,10 +10,15 @@ export const CardObservacoes = () => {
       <Grid spacing={2}>
         <GridItem direction="column">
           <Typography variant="h3">Observações do pedido:</Typography>
+          <Typography variant="small">(Opcional)</Typography>
         </GridItem>
 
-        <GridItem col={6}>
-          <Input variant="textarea" onChange={(value) => setComments(value)} />
+        <GridItem col={6} mobileCol={12}>
+          <Input
+            placeholder="Exemplo: Sem cebola"
+            variant="textarea"
+            onChange={(value) => setComments(value)}
+          />
         </GridItem>
       </Grid>
     </Card>

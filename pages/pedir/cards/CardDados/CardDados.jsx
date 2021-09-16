@@ -55,9 +55,9 @@ export const CardDados = ({ onDataValid }) => {
           <Typography variant="h3">Seus dados:</Typography>
         </GridItem>
 
-        <GridItem col={12}>
-          <Grid direction="row" spacing={3}>
-            <GridItem col={5}>
+        <GridItem col={12} mobileCol={12}>
+          <Grid direction="row" mobileDirection="column" spacing={3}>
+            <GridItem col={5} mobileCol={12}>
               <Input
                 label="Nome:"
                 placeholder="Seu nome"
@@ -67,7 +67,7 @@ export const CardDados = ({ onDataValid }) => {
               />
             </GridItem>
 
-            <GridItem col={3}>
+            <GridItem col={3} mobileCol={12}>
               <Input
                 label="Telefone:"
                 placeholder="Telefone"

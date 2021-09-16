@@ -18,7 +18,7 @@ export const CheckboxCheck = styled.span`
   align-items: center;
   transition: background-color 0.1s ease-out;
   background-color: ${(props) =>
-    props.checked ? props.color || Color.Red : Color.Gray};
+    props.checked ? props.color || Color.Red : Color.GrayLight};
 
   & > ${CheckboxCheckmark} {
     transform: ${(props) => (props.checked ? 'scale(1)' : 'scale(0)')};
