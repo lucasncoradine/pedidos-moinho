@@ -38,7 +38,7 @@ const Pedir = () => {
   return (
     <PageContainer>
       <TitleContainer>
-        <Typography variant="h1">Fazer pedido</Typography>
+        <Typography variant="h1">Monte sua marmita</Typography>
       </TitleContainer>
 
       <ProgressBar color={Color.Red} progress={step} total={totalSteps} />

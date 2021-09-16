@@ -35,7 +35,7 @@ export const Input = ({
         placeholder={placeholder}
         onChange={(e) => onChange?.(e.target.value)}
         onBlur={(e) => onBlur?.(e.target.value)}
-        rows={variant === 'textarea' && 3}
+        rows={variant === 'textarea' ? 3 : undefined}
       />
     ) : (
       <NumberFormat
