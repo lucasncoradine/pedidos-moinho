@@ -5,12 +5,14 @@ import { GridContainer } from './grid.styled'
 export const Grid = ({
   justify,
   direction = 'column',
+  mobileDirection = 'column',
   align,
   spacing,
   children,
 }) => {
   return (
     <GridContainer
+      mobileDirection={mobileDirection}
       direction={direction}
       justify={justify}
       align={align}
@@ -30,6 +32,7 @@ Grid.propTypes = {
     'space-between',
   ]),
   direction: PropTypes.string,
+  mobileDirection: PropTypes.string,
   spacing: PropTypes.number,
   children: PropTypes.node,
 }

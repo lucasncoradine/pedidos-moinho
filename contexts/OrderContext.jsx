@@ -32,9 +32,9 @@ export const OrderProvider = ({ children }) => {
     setMeat(items)
   }
 
-  const makeOrder = () => {
+  const makeOrder = async () => {
     const lines = [
-      `<b>Pedido #000</b>`,
+      `<b>NOVO PEDIDO</b>`,
       ``,
       `<b>Nome</b>: ${name}`,
       `<b>Telefone</b>: ${phone}`,
@@ -50,7 +50,7 @@ export const OrderProvider = ({ children }) => {
       `${comments}`,
     ]
 
-    bot.sendLines(lines)
+    return bot.sendLines(lines)
   }
 
   return (

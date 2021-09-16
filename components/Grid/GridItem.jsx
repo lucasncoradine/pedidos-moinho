@@ -4,6 +4,7 @@ import { GridItemContainer } from './grid.styled'
 
 export const GridItem = ({
   col,
+  mobileCol,
   direction = 'row',
   justify,
   align,
@@ -13,6 +14,7 @@ export const GridItem = ({
     <GridItemContainer
       direction={direction}
       col={col}
+      mobileCol={mobileCol || col}
       justify={justify}
       align={align}
     >
@@ -25,6 +27,7 @@ GridItem.propTypes = {
   align: PropTypes.oneOf(['flex-start', 'center', 'flex-end']),
   children: PropTypes.any,
   col: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+  mobileCol: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   justify: PropTypes.oneOf(['flex-start', 'center', 'flex-end']),
   direction: PropTypes.string,
 }

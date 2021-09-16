@@ -11,23 +11,29 @@ export class TelegramBot {
     this.#apiUrl = `${process.env.TELEGRAM_API_URL}/bot${this.#token}`
   }
 
-  sendMessage = (message) => {
+  sendMessage = async (message) => {
     const sendMessageUrl = `${this.#apiUrl}/sendMessage`
 
-    axios.get(sendMessageUrl, {
+    const result = await axios.get(sendMessageUrl, {
       params: {
         chat_id: this.#chatId,
         text: message,
         parse_mode: 'HTML',
       },
     })
+
+    return result
   }
 
-  sendLines = (array) => {
+  sendLines = async (array) => {
+    let result = 'Array vazio. Mensagem não enviada!'
+
     if (array && array.length > 0) {
       const lines = array.join('\n')
 
-      this.sendMessage(lines)
+      result = await this.sendMessage(lines)
     }
+
+    return result
   }
 }

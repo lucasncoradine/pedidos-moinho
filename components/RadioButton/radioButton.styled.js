@@ -16,7 +16,7 @@ export const RadioCheck = styled.span`
   align-items: center;
   transition: background-color 0.1s ease-out;
   background-color: ${(props) =>
-    props.checked ? props.color || Color.Red : Color.Gray};
+    props.checked ? props.color || Color.Red : Color.GrayLight};
 
   &:after {
     content: '';

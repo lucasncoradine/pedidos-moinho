@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { v4 } from 'uuid'
+import { isMobile } from 'react-device-detect'
 
 export class Utils {
   static generateUUID = () => v4()
@@ -12,4 +13,6 @@ export class Utils {
 
     return context
   }
+
+  static isMobile = () => isMobile
 }

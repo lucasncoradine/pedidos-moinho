@@ -38,4 +38,8 @@ export const TypographyElement = styled.span`
   font-size: ${(props) => `${formats[props.as]?.size || 16}px`};
   font-weight: ${(props) =>
     weights[props.weight] || formats[props.as]?.weight || 600};
+
+  & > strong {
+    font-weight: 800;
+  }
 `
