@@ -34,11 +34,12 @@ export const OrderProvider = ({ children }) => {
 
   const makeOrder = async () => {
     const lines = [
-      `<b>NOVO PEDIDO</b>`,
+      `<b>Novo Pedido</b>`,
+      `<i>Feito em: ${new Date().toLocaleString()}</i>`,
       ``,
       `<b>Nome</b>: ${name}`,
       `<b>Telefone</b>: ${phone}`,
-      `<b>Tamanho</b>: ${size.description}`,
+      `<b>Tamanho</b>: ${size.description.toUpperCase()}`,
       ``,
       `<b>Guarnições</b>:`,
       `${garnish.map((item) => `   - ${item}`).join('\n')}`,
