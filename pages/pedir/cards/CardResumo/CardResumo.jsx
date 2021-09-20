@@ -29,7 +29,7 @@ export const CardResumo = () => {
 
             <GridItem direction="rocolumnw">
               <Typography weight="regular" variant="p">
-                <strong>Tamanho:</strong> {size.description}
+                <strong>Tamanho:</strong> {size?.description}
               </Typography>
             </GridItem>
 
