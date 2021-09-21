@@ -15,9 +15,8 @@
       "@utils": ["utils/index.js"],
       "@contexts": ["contexts/index.js"],
       "@services": ["services/index.js"],
-      "@static": ["static/index.js"],
       "@models": ["models/index.js"],
-      "@telegram-bot": ["apis/telegram/telegram-api.js"]
+      "@apis": ["apis/index.js"]
     }
   },
   "include": ["**/*.js", "**/*.jsx"],

@@ -1,4 +1,4 @@
-import { TelegramBot } from 'apis/telegram/telegram-api'
+import { TelegramBot } from '@apis'
 import { Utils } from '@utils'
 import PropTypes from 'prop-types'
 import React, { createContext, useState } from 'react'

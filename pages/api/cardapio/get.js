@@ -1,4 +1,4 @@
-import { Database, minifyRecords } from "apis/airtable/airtable-api";
+import { Database, minifyRecords } from "@apis";
 import _ from 'lodash';
 
 const table = Database.connectTo("Cardapio")
