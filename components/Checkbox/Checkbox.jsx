@@ -7,23 +7,23 @@ import {
   CheckboxCheck,
   CheckboxCheckmark,
   CheckboxContainer,
-  CheckboxLabel,
+  CheckboxLabel
 } from './checkbox.styled'
 
 export const Checkbox = ({ label, checked, onChange, disabled }) => {
+  const handleChange = () => {
+    if (!disabled) onChange?.(!checked, label)
+  }
+
   return (
     <CheckboxContainer>
-      <CheckboxLabel
-        disabled={disabled}
-        checked={checked}
-        onClick={() => onChange?.(!checked, label)}
-      >
-        <CheckboxCheck checked={checked}>
-          <CheckboxCheckmark>
-            <Icon icon={Check} size={20} color={Color.White} />
-          </CheckboxCheckmark>
-        </CheckboxCheck>
+      <CheckboxLabel disabled={disabled} checked={checked}>
+        <CheckboxCheck tabIndex={0} type="checkbox" name={label} checked={checked} onChange={handleChange} />
         <Typography>{label}</Typography>
+
+        <CheckboxCheckmark>
+          <Icon icon={Check} size={20} color={Color.White} />
+        </CheckboxCheckmark>
       </CheckboxLabel>
     </CheckboxContainer>
   )

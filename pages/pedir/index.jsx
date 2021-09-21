@@ -56,10 +56,12 @@ const Pedir = () => {
   }
 
   const nextStep = () => {
+    document.activeElement.blur()
     if (step < totalSteps) setStep((prev) => prev + 1)
   }
 
   const prevStep = () => {
+    document.activeElement.blur()
     if (step > 0) setStep((prev) => prev - 1)
   }
 

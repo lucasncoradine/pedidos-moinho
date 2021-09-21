@@ -12,12 +12,15 @@ export const Button = ({
   href,
   disabled = false,
   onClick,
+  tabIndex = 0,
 }) => (
   <StyledButton
+    as={href ? "a" : "button"}
     disabled={disabled}
     variant={variant}
     onClick={() => onClick?.()}
     href={href}
+    tabIndex={tabIndex}
   >
     {icon && iconPosition === 'left' && (
       <ButtonIconContainer iconPosition={label && iconPosition}>
@@ -43,4 +46,5 @@ Button.propTypes = {
   iconPosition: PropTypes.oneOf(['left', 'right']),
   href: PropTypes.string,
   onClick: PropTypes.func,
+  tabIndex: PropTypes.number,
 }

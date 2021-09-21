@@ -41,6 +41,7 @@ export const StyledButton = styled.a`
   padding: 12px 20px;
   border-radius: 18px;
   user-select: none;
+  border: none;
 
   ${(props) => props.disabled && `opacity: 0.3; pointer-events: none; `}
 

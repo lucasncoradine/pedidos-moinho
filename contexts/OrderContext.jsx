@@ -44,7 +44,7 @@ export const OrderProvider = ({ children }) => {
       `<b>Nome</b>: ${name}`,
       `<b>Telefone</b>: ${phone}`,
       `${sector && `<b>Setor</b>: ${sector}`}`,
-      `<b>Tamanho</b>: ${size.description.toUpperCase()}`,
+      `<b>Tamanho</b>: ${size.type.toUpperCase()}`,
       ``,
       `<b>Guarnições</b>:`,
       `${garnish.map((item) => `   - ${item}`).join('\n')}`,
@@ -53,7 +53,7 @@ export const OrderProvider = ({ children }) => {
       `${meat.map((item) => `   - ${item}`).join('\n')}`,
       ``,
       `<b>Observações</b>:`,
-      `${comments || "-"}`,
+      `${comments || '<i>Nenhuma</i>'}`,
     ]
 
     return bot.sendLines(lines)

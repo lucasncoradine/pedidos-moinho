@@ -23,6 +23,7 @@
     "import/no-extraneous-dependencies": "off",
     "react/no-array-index-key": "off",
     "arrow-body-style": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "jsx-a11y/tabindex-no-positive": "off"
   }
 }
