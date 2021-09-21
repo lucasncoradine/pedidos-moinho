@@ -1,4 +1,5 @@
 import axios from 'axios'
+import _ from 'lodash'
 
 export class TelegramBot {
   #token
@@ -29,7 +30,7 @@ export class TelegramBot {
     let result = 'Array vazio. Mensagem não enviada!'
 
     if (array && array.length > 0) {
-      const lines = array.join('\n')
+      const lines = _.without(array, null).join('\n')
 
       result = await this.sendMessage(lines)
     }

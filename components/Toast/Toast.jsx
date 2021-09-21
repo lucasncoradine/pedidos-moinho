@@ -1,10 +1,10 @@
-import { Button, Card, Grid, GridItem, Icon, Typography } from '@components'
+import { Card, Grid, GridItem, Icon, Typography } from '@components'
 import { Color } from '@styles'
 import { lighten } from 'polished'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-import { AlertOctagon, CheckCircle, Info, X } from 'react-feather'
-import { ToastCloseWrapper, ToastIconWrapper, ToastTextWrapper, ToastWrapper } from './toast.styled'
+import { AlertOctagon, CheckCircle, Info } from 'react-feather'
+import { ToastIconWrapper, ToastTextWrapper, ToastWrapper } from './toast.styled'
 
 export const Toast = ({ message, onClose, variant = "info", open = false, timeoutSeconds = 5 }) => {
   const variants = {
@@ -42,25 +42,19 @@ export const Toast = ({ message, onClose, variant = "info", open = false, timeou
   }, [open, counter])
 
   return (
-    <ToastWrapper open={open}>
+    <ToastWrapper open={open} onClick={() => onClose?.()}>
       <Card color={lighten(0.52, variants[variant].color)}>
-        <Grid direction="row" justify="space-between" align="center">
+        <Grid direction="row" mobileDirection="row" align="center">
           <GridItem>
             <ToastIconWrapper>
               <Icon color={variants[variant].color} icon={variants[variant].icon} />
             </ToastIconWrapper>
           </GridItem>
 
-          <GridItem col={8}>
+          <GridItem>
             <ToastTextWrapper>
               <Typography textAlign="left" weight="bold" color={variants[variant].color}>{message}</Typography>
             </ToastTextWrapper>
-          </GridItem>
-
-          <GridItem>
-            <ToastCloseWrapper>
-              <Button variant="transparent" icon={X} onClick={() => onClose?.()} />
-            </ToastCloseWrapper>
           </GridItem>
         </Grid>
       </Card>
