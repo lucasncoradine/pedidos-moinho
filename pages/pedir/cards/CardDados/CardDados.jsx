@@ -10,6 +10,7 @@ export const CardDados = ({ onDataValid }) => {
   const [nameError, setNameError] = useState()
   const [phone, setPhone] = useState('')
   const [phoneError, setPhoneError] = useState()
+  const [sector, setSector] = useState('')
 
   const validateName = (value) => {
     if (!value || value.length === 0) {
@@ -39,8 +40,8 @@ export const CardDados = ({ onDataValid }) => {
   }
 
   useEffect(() => {
-    updateUserData(name, phone)
-  }, [name, phone])
+    updateUserData(name, phone, sector)
+  }, [name, phone, sector])
 
   useEffect(() => {
     const dataValid = nameError === null && phoneError === null
@@ -59,7 +60,7 @@ export const CardDados = ({ onDataValid }) => {
           <Grid direction="row" mobileDirection="column" spacing={3}>
             <GridItem col={5} mobileCol={12}>
               <Input
-                label="Nome:"
+                label="Nome: *"
                 placeholder="Seu nome"
                 onChange={() => setNameError('')}
                 onBlur={(value) => validateName(value)}
@@ -69,12 +70,20 @@ export const CardDados = ({ onDataValid }) => {
 
             <GridItem col={3} mobileCol={12}>
               <Input
-                label="Telefone:"
+                label="Telefone: *"
                 placeholder="Telefone"
                 format="(##) #####-####"
                 onChange={() => setPhoneError('')}
                 onBlur={(value) => validatePhone(value)}
                 error={phoneError}
+              />
+            </GridItem>
+
+            <GridItem col={3} mobileCol={12}>
+              <Input
+                label="Setor:"
+                placeholder="Setor (opcional)"
+                onChange={(value) => setSector(value)}
               />
             </GridItem>
           </Grid>

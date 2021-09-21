@@ -20,7 +20,7 @@ export const Button = ({
     href={href}
   >
     {icon && iconPosition === 'left' && (
-      <ButtonIconContainer iconPosition={iconPosition}>
+      <ButtonIconContainer iconPosition={label && iconPosition}>
         <Icon icon={icon} />
       </ButtonIconContainer>
     )}
@@ -28,7 +28,7 @@ export const Button = ({
     {label && <Typography weight="bold">{label}</Typography>}
 
     {icon && iconPosition === 'right' && (
-      <ButtonIconContainer iconPosition={iconPosition}>
+      <ButtonIconContainer iconPosition={label && iconPosition}>
         <Icon icon={icon} />
       </ButtonIconContainer>
     )}

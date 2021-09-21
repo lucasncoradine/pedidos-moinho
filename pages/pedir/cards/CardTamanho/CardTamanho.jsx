@@ -1,24 +1,28 @@
 import { Card, Grid, GridItem, RadioGroup, Typography } from '@components'
 import { useOrder } from '@contexts'
 import { SizeModel } from '@models'
-import { TamanhosMarmita } from '@static'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const CardTamanho = ({ onDataValid }) => {
-  const { updateSize } = useOrder()
-  const sizes = TamanhosMarmita.map((x) => new SizeModel(x))
-
-  const options = sizes.map((x) => {
-    return { label: x.description, value: x.price }
-  })
+  const { updateSize, sizes } = useOrder()
+  const [options, setOptions] = useState([])
 
   const handleChange = (value) => {
-    const selectedOption = sizes.find((x) => x.price === value)
+    const selectedOption = new SizeModel(sizes.find((x) => x.Tipo.toLowerCase() === value))
 
     updateSize(selectedOption)
     onDataValid?.(true)
   }
+
+  useEffect(() => {
+    setOptions(sizes.map(x => {
+      return {
+        label: x.Tipo,
+        value: x.Tipo.toLowerCase()
+      }
+    }))
+  }, [sizes])
 
   return (
     <Card>

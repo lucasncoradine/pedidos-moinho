@@ -4,18 +4,24 @@ export class SizeModel {
   amountMeat
   amountGarnish
   price
+  order
+  visible
 
   constructor({
-    tipo,
-    descricao,
-    quantidadeCarnes,
-    quantidadeGuarnicoes,
-    valor,
+    Tipo,
+    Descricao,
+    QuantCarnes,
+    QuantGuarnicoes,
+    Valor,
+    Ordem,
+    Exibir,
   }) {
-    this.type = tipo
-    this.description = descricao
-    this.amountMeat = quantidadeCarnes
-    this.amountGarnish = quantidadeGuarnicoes
-    this.price = valor
+    this.type = Tipo
+    this.description = Descricao
+    this.amountMeat = QuantCarnes
+    this.amountGarnish = QuantGuarnicoes
+    this.price = Valor
+    this.order = Ordem
+    this.visible = Exibir
   }
 }

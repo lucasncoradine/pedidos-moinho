@@ -62,7 +62,7 @@ export const CardResumo = () => {
                 <strong>Observações:</strong>
               </Typography>
               <TabSpace>
-                <Typography>{comments}</Typography>
+                <Typography>{comments || "-"}</Typography>
               </TabSpace>
             </GridItem>
           </Grid>

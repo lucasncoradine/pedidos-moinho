@@ -6,7 +6,9 @@ import {
   ProgressBar,
   Typography,
 } from '@components'
-import { useOrder } from '@contexts'
+import { useApp, useOrder } from '@contexts'
+import { MenuModel } from '@models'
+import { MenuService } from '@services'
 import { Color, Container, PageContainer, TitleContainer } from '@styles'
 import { Utils } from '@utils'
 import React, { useEffect, useState } from 'react'
@@ -19,14 +21,39 @@ import { CardTamanho } from './cards/CardTamanho/CardTamanho'
 
 const Pedir = () => {
   const totalSteps = 3
-  const { makeOrder } = useOrder()
+  const { makeOrder, setMenu, setSizes } = useOrder()
+  const { setShowLoader, showToast } = useApp()
 
   const [step, setStep] = useState(0)
   const [userDataValid, setUserDataValid] = useState(false)
   const [sizeValid, setSizeValid] = useState(false)
   const [enableNextStep, setEnableNextStep] = useState(false)
   const [showMessage, setShowMessage] = useState()
-  const [responseMessage, setResponseMessage] = useState()
+  const [responseMessage, setResponseMessage] = useState('')
+
+  const getMenu = async () => {
+    setShowLoader(true)
+
+    try {
+      const result = await MenuService.getItens()
+      setMenu(result.map(x => new MenuModel(x)))
+    }
+    catch (error) {
+      showToast(error.message, "error")
+    }
+  }
+
+  const getSizes = async () => {
+    setShowLoader(true)
+
+    try {
+      const result = await MenuService.getSizes()
+      setSizes(result)
+    }
+    catch (error) {
+      showToast(error.message, "error")
+    }
+  }
 
   const nextStep = () => {
     if (step < totalSteps) setStep((prev) => prev + 1)
@@ -43,16 +70,29 @@ const Pedir = () => {
   }
 
   const handleOrder = async () => {
-    const response = await makeOrder()
+    try {
+      const response = await makeOrder()
 
-    setShowMessage(response.data.ok ? 'success' : 'error')
-    setResponseMessage(response.message || 'Pedido realizado com sucesso!')
-    setStep(totalSteps + 1)
+      setShowMessage(response.data.ok ? 'success' : 'error')
+      setResponseMessage(response.message || 'Pedido realizado com sucesso!')
+      setStep(totalSteps + 1)
+    } catch (error) {
+      showToast(error.message, "error")
+    }
+
+    setShowLoader(false)
   }
 
   useEffect(() => {
     setEnableNextStep(validateStep())
   }, [userDataValid, sizeValid])
+
+  useEffect(async () => {
+    await getMenu()
+    await getSizes()
+
+    setShowLoader(false)
+  }, [])
 
   const renderSteps = () => {
     return (
@@ -70,9 +110,17 @@ const Pedir = () => {
           <CardTamanho onDataValid={(valid) => setSizeValid(valid)} />
         </Container>
 
-        {step === 1 && <CardGuarnicoes />}
-        {step === 2 && <CardCarnes />}
-        {step === 3 && <CardObservacoes />}
+        <Container visible={step === 1}>
+          <CardGuarnicoes />
+        </Container>
+
+        <Container visible={step === 2}>
+          <CardCarnes />
+        </Container>
+
+        <Container visible={step === 3}>
+          <CardObservacoes />
+        </Container>
       </>
     )
   }
@@ -129,7 +177,7 @@ const Pedir = () => {
             <Button
               label="Fazer pedido"
               variant="primary"
-              onClick={() => handleOrder()}
+              onClick={() => { setShowLoader(true); handleOrder() }}
             />
           </GridItem>
         )}

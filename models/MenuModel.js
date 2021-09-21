@@ -1,11 +1,11 @@
 export class MenuModel {
-  guarnish
-  meat
-  salad
+  name
+  type
+  visible
 
-  constructor({ guarnicoes, carnes, saladas }) {
-    this.guarnish = guarnicoes
-    this.meat = carnes
-    this.salad = saladas
+  constructor({ Nome, Tipo, Exibir }) {
+    this.name = Nome
+    this.type = Tipo
+    this.visible = Exibir
   }
 }

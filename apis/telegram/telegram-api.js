@@ -12,7 +12,7 @@ export class TelegramBot {
   }
 
   sendMessage = async (message) => {
-    const sendMessageUrl = `${this.#apiUrl}/sendMessage`
+    const sendMessageUrl = `${this.#apiUrl}/sendMessag`
 
     const result = await axios.get(sendMessageUrl, {
       params: {

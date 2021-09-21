@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "airtable": "^0.11.1",
     "axios": "^0.21.4",
     "dotenv": "^10.0.0",
+    "lodash": "^4.17.21",
     "next": "11.1.2",
     "prop-types": "^15.7.2",
     "react": "17.0.2",
