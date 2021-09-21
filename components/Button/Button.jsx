@@ -12,15 +12,18 @@ export const Button = ({
   href,
   disabled = false,
   onClick,
+  tabIndex = 0,
 }) => (
   <StyledButton
+    as={href ? "a" : "button"}
     disabled={disabled}
     variant={variant}
     onClick={() => onClick?.()}
     href={href}
+    tabIndex={tabIndex}
   >
     {icon && iconPosition === 'left' && (
-      <ButtonIconContainer iconPosition={iconPosition}>
+      <ButtonIconContainer iconPosition={label && iconPosition}>
         <Icon icon={icon} />
       </ButtonIconContainer>
     )}
@@ -28,7 +31,7 @@ export const Button = ({
     {label && <Typography weight="bold">{label}</Typography>}
 
     {icon && iconPosition === 'right' && (
-      <ButtonIconContainer iconPosition={iconPosition}>
+      <ButtonIconContainer iconPosition={label && iconPosition}>
         <Icon icon={icon} />
       </ButtonIconContainer>
     )}
@@ -43,4 +46,5 @@ Button.propTypes = {
   iconPosition: PropTypes.oneOf(['left', 'right']),
   href: PropTypes.string,
   onClick: PropTypes.func,
+  tabIndex: PropTypes.number,
 }

@@ -6,8 +6,8 @@ import { RadioCheck, RadioContainer, RadioLabel } from './radioButton.styled'
 export const RadioButton = ({ value, label, checked, onClick }) => {
   return (
     <RadioContainer>
-      <RadioLabel checked={checked} onClick={() => onClick?.(value)}>
-        <RadioCheck checked={checked} />
+      <RadioLabel checked={checked}>
+        <RadioCheck type="radio" name={value} checked={checked} onChange={() => onClick?.(value)} />
         <Typography>{label}</Typography>
       </RadioLabel>
     </RadioContainer>

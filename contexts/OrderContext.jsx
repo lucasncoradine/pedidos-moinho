@@ -1,4 +1,4 @@
-import { TelegramBot } from '@telegram-bot'
+import { TelegramBot } from 'apis/telegram/telegram-api'
 import { Utils } from '@utils'
 import PropTypes from 'prop-types'
 import React, { createContext, useState } from 'react'
@@ -10,14 +10,18 @@ export const OrderProvider = ({ children }) => {
 
   const [name, setName] = useState()
   const [phone, setPhone] = useState()
+  const [sector, setSector] = useState()
   const [size, setSize] = useState()
   const [garnish, setGarnish] = useState([])
   const [meat, setMeat] = useState([])
   const [comments, setComments] = useState('')
+  const [menu, setMenu] = useState([])
+  const [sizes, setSizes] = useState([])
 
-  const updateUserData = (userName, userPhone) => {
+  const updateUserData = (userName, userPhone, userSector) => {
     if (userName) setName(userName)
     if (userPhone) setPhone(userPhone)
+    if (userSector) setSector(userSector)
   }
 
   const updateSize = (newSize) => {
@@ -39,16 +43,17 @@ export const OrderProvider = ({ children }) => {
       ``,
       `<b>Nome</b>: ${name}`,
       `<b>Telefone</b>: ${phone}`,
-      `<b>Tamanho</b>: ${size.description.toUpperCase()}`,
+      `<b>Tamanho</b>: ${size.type.toUpperCase()}`,
+      sector ? `<b>Setor</b>: ${sector}` : null,
       ``,
       `<b>Guarnições</b>:`,
-      `${garnish.map((item) => `   - ${item}`).join('\n')}`,
+      garnish.map((item) => `   - ${item}`).join('\n') || "<i>Nenhuma</i>",
       ``,
       `<b>Carnes</b>:`,
-      `${meat.map((item) => `   - ${item}`).join('\n')}`,
+      meat.map((item) => `   - ${item}`).join('\n') || "<i>Nenhuma</i>",
       ``,
       `<b>Observações</b>:`,
-      `${comments}`,
+      `${comments || '<i>Nenhuma</i>'}`,
     ]
 
     return bot.sendLines(lines)
@@ -59,16 +64,21 @@ export const OrderProvider = ({ children }) => {
       value={{
         name,
         phone,
+        sector,
         size,
         garnish,
         meat,
         comments,
+        menu,
+        sizes,
         updateUserData,
         updateSize,
         makeOrder,
         updateGarnish,
         updateMeat,
         setComments,
+        setMenu,
+        setSizes
       }}
     >
       {children}
@@ -86,15 +96,20 @@ export const useOrder = () => {
   return {
     name: context.name,
     phone: context.phone,
+    sector: context.sector,
     size: context.size,
     garnish: context.garnish,
     meat: context.meat,
     comments: context.comments,
+    menu: context.menu,
+    sizes: context.sizes,
     updateUserData: context.updateUserData,
     updateSize: context.updateSize,
     makeOrder: context.makeOrder,
     updateGarnish: context.updateGarnish,
     updateMeat: context.updateMeat,
     setComments: context.setComments,
+    setMenu: context.setMenu,
+    setSizes: context.setSizes
   }
 }

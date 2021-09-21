@@ -1,12 +1,14 @@
-import { OrderProvider } from '@contexts'
+import { AppProvider, OrderProvider } from '@contexts'
 import PropTypes from 'prop-types'
 import React from 'react'
 import '../styles/globals.css'
 
 const MyApp = ({ Component, pageProps }) => (
-  <OrderProvider>
-    <Component {...pageProps} />
-  </OrderProvider>
+  <AppProvider>
+    <OrderProvider>
+      <Component {...pageProps} />
+    </OrderProvider>
+  </AppProvider>
 )
 
 MyApp.propTypes = {

@@ -57,14 +57,16 @@ export const CardResumo = () => {
               ))}
             </GridItem>
 
-            <GridItem direction="column">
-              <Typography weight="regular" variant="p">
-                <strong>Observações:</strong>
-              </Typography>
-              <TabSpace>
-                <Typography>{comments}</Typography>
-              </TabSpace>
-            </GridItem>
+            {comments &&
+              <GridItem direction="column">
+                <Typography weight="regular" variant="p">
+                  <strong>Observações:</strong>
+                </Typography>
+                <TabSpace>
+                  <Typography>{comments}</Typography>
+                </TabSpace>
+              </GridItem>
+            }
           </Grid>
         </GridItem>
       </Grid>

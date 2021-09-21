@@ -2,11 +2,11 @@ import { Grid, GridItem, Icon, Typography } from '@components'
 import { Color } from '@styles'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { CheckCircle, Info, XCircle } from 'react-feather'
+import { AlertOctagon, CheckCircle, Info } from 'react-feather'
 import {
   MessageBoxContainer,
   MessageBoxText,
-  MessageIconContainer,
+  MessageIconContainer
 } from './messageBox.styled'
 
 export const MessageBox = ({ message, icon, variant = 'info' }) => {
@@ -17,7 +17,7 @@ export const MessageBox = ({ message, icon, variant = 'info' }) => {
     },
     error: {
       color: Color.Error,
-      icon: XCircle,
+      icon: AlertOctagon,
     },
     info: {
       color: Color.Info,

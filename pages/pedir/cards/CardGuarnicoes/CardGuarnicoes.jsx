@@ -1,17 +1,17 @@
 import { Card, CheckboxGroup, Grid, GridItem, Typography } from '@components'
 import { useOrder } from '@contexts'
-import React from 'react'
-import { Cardapio } from '@static'
-import { MenuModel } from '@models'
+import React, { useEffect, useState } from 'react'
 
 export const CardGuarnicoes = () => {
-  const { updateGarnish } = useOrder()
+  const { updateGarnish, size, menu } = useOrder()
 
-  const menu = new MenuModel(Cardapio)
-  const options = [...menu.guarnish, ...menu.salad]
+  const [options, setOptions] = useState([])
 
-  const { size } = useOrder()
+  useEffect(() => {
+    setOptions(menu.filter(x => ['Salada', 'Guarnicao'].includes(x.type)).map(x => x.name))
+  }, [menu])
 
+  // TODO: Validar seleção minima
   return (
     <Card>
       <Grid spacing={2}>

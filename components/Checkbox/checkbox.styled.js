@@ -6,12 +6,19 @@ export const CheckboxContainer = styled.div`
   display: flex;
   align-items: center;
 `
-export const CheckboxCheckmark = styled.div``
-export const CheckboxCheck = styled.span`
+export const CheckboxCheckmark = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0;
+  margin-top: 1px;
+  transform: scale(0);
+`
+export const CheckboxCheck = styled.input`
+  appearance: none;
   display: flex;
   height: 20px;
   width: 20px;
-  padding: 2px;
+  margin: 0;
   margin-right: 10px;
   border-radius: 2px;
   justify-content: center;
@@ -20,7 +27,7 @@ export const CheckboxCheck = styled.span`
   background-color: ${(props) =>
     props.checked ? props.color || Color.Red : Color.GrayLight};
 
-  & > ${CheckboxCheckmark} {
+  & ~ ${CheckboxCheckmark} {
     transform: ${(props) => (props.checked ? 'scale(1)' : 'scale(0)')};
     transition: all 0.1s ease-out;
   }
@@ -39,7 +46,7 @@ export const CheckboxLabel = styled.label`
   &:hover {
     & > ${CheckboxCheck} {
       background-color: ${(props) =>
-        !props.checked ? lighten(0.1, Color.Gray) : lighten(0.1, Color.Red)};
+    !props.checked ? lighten(0.1, Color.Gray) : lighten(0.1, Color.Red)};
     }
   }
 `

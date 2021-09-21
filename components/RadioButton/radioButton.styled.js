@@ -6,7 +6,8 @@ export const RadioContainer = styled.div`
   display: flex;
   align-items: center;
 `
-export const RadioCheck = styled.span`
+export const RadioCheck = styled.input`
+  appearance: none;
   display: flex;
   height: 20px;
   width: 20px;
@@ -25,7 +26,7 @@ export const RadioCheck = styled.span`
     transform: ${(props) => (props.checked ? 'scale(1)' : 'scale(0)')};
     width: 8px;
     height: 8px;
-    transition: all 0.1s ease-out;
+    transition: all 0.2s ease-in;
   }
 `
 export const RadioLabel = styled.label`
@@ -40,7 +41,7 @@ export const RadioLabel = styled.label`
   &:hover {
     & > ${RadioCheck} {
       background-color: ${(props) =>
-        !props.checked ? lighten(0.1, Color.Gray) : lighten(0.1, Color.Red)};
+    !props.checked ? lighten(0.1, Color.Gray) : lighten(0.1, Color.Red)};
     }
   }
 `

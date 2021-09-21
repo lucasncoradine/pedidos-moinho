@@ -41,6 +41,7 @@ export const StyledButton = styled.a`
   padding: 12px 20px;
   border-radius: 18px;
   user-select: none;
+  border: none;
 
   ${(props) => props.disabled && `opacity: 0.3; pointer-events: none; `}
 
@@ -52,7 +53,7 @@ export const StyledButton = styled.a`
     color: ${(props) => variants[props.variant].hoverColor};
     background-color: ${(props) => variants[props.variant].hoverBackground};
     transform: ${(props) =>
-      !noScale.includes(props.variant) ? 'scale(1.03)' : 'none'};
+    !noScale.includes(props.variant) ? 'scale(1.03)' : 'none'};
 
     border-color: ${(props) => `${variants[props.variant].hoverColor};`};
   }
@@ -60,7 +61,7 @@ export const StyledButton = styled.a`
   &:active {
     transform: scale(1);
     background-color: ${(props) =>
-      lighten(0.05, variants[props.variant].backgroundColor)};
+    lighten(0.05, variants[props.variant].backgroundColor)};
   }
 
   ${mobile} {
@@ -70,6 +71,7 @@ export const StyledButton = styled.a`
 `
 
 export const ButtonIconContainer = styled.div`
-  ${(props) =>
-    `${props.iconPosition === 'right' ? 'margin-left' : 'margin-right'}: 10px`};
+  ${(props) => props.iconPosition ?
+    `${props.iconPosition === 'right' ? 'margin-left' : 'margin-right'}: 10px` : "none"
+  }
 `
